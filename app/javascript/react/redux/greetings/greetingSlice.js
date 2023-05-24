@@ -10,20 +10,23 @@ export const fetchGreetings = createAsyncThunk('greetings/fetch', async () => {
 const initialState = { loading: false, greeting: '', error: '' };
 
 const greetingSlice = createSlice({
-  name: 'greetings',
+  name: 'greeting',
   initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchGreetings.pending, (state) => {
-      return { ...state, loading: true };
+      const newState = { ...state, loading: true };
+      return newState;
     });
     builder.addCase(fetchGreetings.fulfilled, (state, action) => {
-      return { ...state, greeting: action.payload, loading: false };
+      const newState = { ...state, greeting: action.payload, loading: false };
+      return newState;
     });
     builder.addCase(fetchGreetings.rejected, (state, action) => {
-      return { ...state, greeting: '', error: action.error.message };
+      const newState = { ...state, greeting: '', error: action.error.message };
+      return newState;
     });
   },
 });
 
-export default greetingSlice;
+export default greetingSlice.reducer;
