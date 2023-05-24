@@ -15,12 +15,10 @@ const Greetings = () => {
   }
 
   if (error) {
-    return <p>{ error }</p>;
+    return <p>{error}</p>;
   }
 
-  return (
-    <p>{ greeting }</p>
-  );
+  return <p>{greeting}</p>;
 };
 
 export default Greetings;
